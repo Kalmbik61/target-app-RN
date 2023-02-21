@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../../styles/variables";
 
 export const styles = StyleSheet.create({
   inputContainer: {
@@ -8,7 +9,7 @@ export const styles = StyleSheet.create({
     marginTop: 100,
     marginHorizontal: 24,
     borderRadius: 8,
-    backgroundColor: "#3b021f",
+    backgroundColor: COLORS.primary800,
     elevation: 4,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
@@ -19,11 +20,11 @@ export const styles = StyleSheet.create({
     height: 50,
     width: 50,
     fontSize: 32,
-    borderBottomColor: "#ddb52f",
+    borderBottomColor: COLORS.accent500,
     borderBottomWidth: 2,
     marginVertical: 8,
     fontWeight: "bold",
-    color: "#ddb52f",
+    color: COLORS.accent500,
     textAlign: "center",
   },
   btns_wrapper: {

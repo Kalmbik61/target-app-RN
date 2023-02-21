@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
+import { COLORS } from "../../../styles/variables";
 
 export const styles = StyleSheet.create({
   btn_wrapper: {
-    backgroundColor: "#4e0329",
+    backgroundColor: COLORS.primary500,
     borderRadius: 28,
     elevation: 2,
     margin: 4,

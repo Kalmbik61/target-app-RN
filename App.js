@@ -4,17 +4,51 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import GameScreen from "./Components/Screens/GameScreen/GameScreen";
 import { COLORS } from "./styles/variables";
+import GameOverScreen from "./Components/Screens/GameOverScreen/GameOverScreen";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
+  const [gameIsOver, setGameIsOver] = useState(false);
+  const [rounds, setRounds] = useState(0);
 
-  const onStartGameHandler = (pickedNumber) => setUserNumber(pickedNumber);
+  const [fontsLoaded] = useFonts({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  });
 
-  const currentScreen = !!userNumber ? (
-    <GameScreen chosenNumber={userNumber} />
+  const onStartGameHandler = (pickedNumber) => {
+    setUserNumber(pickedNumber);
+    setGameIsOver(false);
+  };
+  const onGameOverHandler = () => setGameIsOver(true);
+
+  const onStartNewGameHandler = () => {
+    setUserNumber(null);
+    setGameIsOver(false);
+    setRounds(0);
+  };
+
+  const currentScreen = gameIsOver ? (
+    <GameOverScreen
+      userNumber={userNumber}
+      rounds={rounds}
+      onRestart={onStartNewGameHandler}
+    />
+  ) : !!userNumber ? (
+    <GameScreen
+      chosenNumber={userNumber}
+      onGameOverHandler={onGameOverHandler}
+      setRounds={setRounds}
+    />
   ) : (
     <StartGameScreen onStartGameHandler={onStartGameHandler} />
   );
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
   return (
     <LinearGradient style={styles.container} colors={COLORS.linear}>

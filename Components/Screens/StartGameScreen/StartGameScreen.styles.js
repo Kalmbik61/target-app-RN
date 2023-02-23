@@ -2,11 +2,15 @@ import { StyleSheet } from "react-native";
 import { COLORS } from "../../../styles/variables";
 
 export const styles = StyleSheet.create({
+  wrapper: {
+    marginTop: 100,
+    alignItems: "center",
+  },
   inputContainer: {
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
-    marginTop: 100,
+    marginTop: 36,
     marginHorizontal: 24,
     borderRadius: 8,
     backgroundColor: COLORS.primary800,
@@ -15,6 +19,10 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.4,
+  },
+  instructiongText: {
+    color: COLORS.accent500,
+    fontSize: 24,
   },
   input: {
     height: 50,

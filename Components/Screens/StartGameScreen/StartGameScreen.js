@@ -1,7 +1,8 @@
-import { View, TextInput, Alert } from "react-native";
+import { View, TextInput, Alert, Text } from "react-native";
 import PrimaryButton from "../../global/PrimaryButton/PrimaryButton";
 import { styles } from "./StartGameScreen.styles";
 import { useState } from "react";
+import Title from "../../global/Title/Title";
 
 export default function StartGameScreen({ onStartGameHandler }) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -26,20 +27,24 @@ export default function StartGameScreen({ onStartGameHandler }) {
     onStartGameHandler(chosenNumber);
   };
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.input}
-        maxLength={2}
-        keyboardType='numeric'
-        value={enteredNumber}
-        onChange={(e) => onNumberInputHandler(e.nativeEvent.text)}
-      />
-      <View style={styles.btns_wrapper}>
-        <View style={styles.btn}>
-          <PrimaryButton onPress={onResetInputHandler}>Reset</PrimaryButton>
-        </View>
-        <View style={styles.btn}>
-          <PrimaryButton onPress={onConfirmHadler}>Confirm</PrimaryButton>
+    <View style={styles.wrapper}>
+      <Title>Guess My Number</Title>
+      <View style={styles.inputContainer}>
+        <Text style={styles.instructiongText}>Enter a number</Text>
+        <TextInput
+          style={styles.input}
+          maxLength={2}
+          keyboardType='numeric'
+          value={enteredNumber}
+          onChange={(e) => onNumberInputHandler(e.nativeEvent.text)}
+        />
+        <View style={styles.btns_wrapper}>
+          <View style={styles.btn}>
+            <PrimaryButton onPress={onResetInputHandler}>Reset</PrimaryButton>
+          </View>
+          <View style={styles.btn}>
+            <PrimaryButton onPress={onConfirmHadler}>Confirm</PrimaryButton>
+          </View>
         </View>
       </View>
     </View>

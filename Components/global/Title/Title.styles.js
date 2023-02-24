@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { COLORS } from "../../../styles/variables";
 
 export const styles = StyleSheet.create({
@@ -8,8 +8,9 @@ export const styles = StyleSheet.create({
     // fontWeight: "bold",
     color: COLORS.white,
     textAlign: "center",
-    borderWidth: 2,
+    borderWidth: Platform.select({ ios: 0, android: 2 }),
     borderColor: COLORS.white,
     padding: 12,
+    maxWidth: "80%",
   },
 });

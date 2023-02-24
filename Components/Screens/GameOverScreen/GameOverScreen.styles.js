@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { COLORS } from "../../../styles/variables";
+
+const devWidth = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
   wrapper: {
@@ -9,9 +11,9 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
   },
   image_wrapper: {
-    borderRadius: 150,
-    width: 300,
-    height: 300,
+    width: devWidth < 380 ? 150 : 300,
+    height: devWidth < 380 ? 150 : 300,
+    borderRadius: devWidth < 380 ? 75 : 150,
     borderWidth: 3,
     borderColor: COLORS.primary800,
     overflow: "hidden",

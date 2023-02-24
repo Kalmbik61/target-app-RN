@@ -1,9 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { COLORS } from "../../../styles/variables";
+
+const devHeight = Dimensions.get("window").height;
 
 export const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 100,
+    marginTop: devHeight < 400 ? 30 : 100,
     alignItems: "center",
   },
   inputContainer: {

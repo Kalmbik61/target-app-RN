@@ -1,22 +1,25 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { COLORS } from "../../../styles/variables";
+
+const devWidth = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
   screen: {
     padding: 24,
+    alignItems: "center",
   },
   number_wrapper: {
     borderWidth: 4,
     borderColor: COLORS.accent500,
     borderRadius: 8,
-    padding: 24,
-    margin: 24,
+    padding: devWidth < 450 ? 12 : 24,
+    margin: devWidth < 450 ? 12 : 24,
     alignItems: "center",
     justifyContent: "center",
   },
   number_text: {
     color: COLORS.accent500,
-    fontSize: 36,
+    fontSize: devWidth < 380 ? 25 : 36,
     fontFamily: "open-sans-bold",
   },
   higher_lower_text: {

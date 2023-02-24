@@ -1,4 +1,4 @@
-import { View, Text, Alert, FlatList } from "react-native";
+import { View, Text, Alert, FlatList, useWindowDimensions } from "react-native";
 import { styles } from "./GameScreen.styles";
 import PrimaryButton from "../../global/PrimaryButton/PrimaryButton";
 import Title from "../../global/Title/Title";
@@ -72,7 +72,6 @@ export default function GameScreen({
       <View style={styles.number_wrapper}>
         <Text style={styles.number_text}>{generatedNumber}</Text>
       </View>
-
       <View>
         <Text style={styles.higher_lower_text}>Higher or lower?</Text>
 
